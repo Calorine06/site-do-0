@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ludoces | Cardápio Digital</title>
+  <link rel="stylesheet" href="/static/css/home.css?v=9">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <div class="cabecalho">
+    <img src="/static/imagens/logo.jpeg" alt="Logo Ludoces" class="logo">
+    <h1>Bem-vindo à Ludoces!</h1>
+    <p>Da minha casa pra sua. 🧁❤️</p>
+    <h2 class="titulo-cardapio">Nosso Cardápio</h2>
+  </div>
+
+  <!-- CONTAINER DE DOCES -->
+  <div class="cardapio-container">
+
+    <!-- Cartão 1: Cone Trufado -->
+    <div class="card">
+      <div class="container-imagem">
+        <img src="/static/imagens/cones.jpg" alt="Cone Trufado" class="img-doce">
+      </div>
+      <h3>Cone Trufado</h3>
+      <div class="area-sabor">
+        <label for="sabor-cone">Escolha o Sabor:</label>
+        <select id="sabor-cone" class="select-sabor">
+          <option value="Chocolate">Chocolate</option>
+          <option value="Ninho">Ninho</option>
+          <option value="Oreo">Oreo</option>
+          <option value="Maracujá">Maracujá</option>
+          <option value="Morango">Morango</option>
+        </select>
+      </div>
+      <p class="preco">R$ 12,00</p>
+      <div class="area-qtd">
+        <label>Quantidade:</label>
+        <input type="number" class="qtd-item" data-nome="Cone Trufado" data-preco="12.00" data-select="sabor-cone" min="0" value="0" onchange="atualizarCarrinho()">
+      </div>
+    </div>
+
+    <!-- Cartão 2: Palha Italiana -->
+    <div class="card">
+      <div class="container-imagem">
+        <img src="/static/imagens/pa.jpeg" alt="Palha Italiana" class="img-doce">
+      </div>
+      <h3>Palha Italiana</h3>
+      <div class="area-sabor">
+        <label for="sabor-palha">Escolha o Sabor:</label>
+        <select id="sabor-palha" class="select-sabor">
+          <option value="Tradicional">Tradicional</option>
+          <option value="Ninho">Ninho</option>
+          <option value="Oreo">Oreo</option>
+        </select>
+      </div>
+      <p class="preco">R$ 11,00</p>
+      <div class="area-qtd">
+        <label>Quantidade:</label>
+        <input type="number" class="qtd-item" data-nome="Palha Italiana" data-preco="11.00" data-select="sabor-palha" min="0" value="0" onchange="atualizarCarrinho()">
+      </div>
+    </div>
+
+    <!-- Cartão 3: Tortinhas -->
+    <div class="card">
+      <div class="container-imagem">
+        <img src="/static/imagens/tort.jpeg" alt="Tortinhas" class="img-doce">
+      </div>
+      <h3>Tortinhas</h3>
+      <div class="area-sabor">
+        <label for="sabor-tortinhas">Escolha o Sabor:</label>
+        <select id="sabor-tortinhas" class="select-sabor">
+          <option value="Limão">Limão</option>
+          <option value="Maracujá">Maracujá</option>
+          <option value="Morango">Morango</option>
+        </select>
+      </div>
+      <p class="preco">R$ 16,00</p>
+      <div class="area-qtd">
+        <label>Quantidade:</label>
+        <input type="number" class="qtd-item" data-nome="Tortinhas" data-preco="16.00" data-select="sabor-tortinhas" min="0" value="0" onchange="atualizarCarrinho()">
+      </div>
+    </div>
+
+    <!-- Cartão 4: Bombom de Morango -->
+    <div class="card">
+      <div class="container-imagem">
+        <img src="/static/imagens/bbdmorango.jpeg" alt="Bombom de Morango" class="img-doce">
+      </div>
+      <h3>Bombom de Morango</h3>
+      <p class="preco">R$ 18,00</p>
+      <div class="area-qtd">
+        <label>Quantidade:</label>
+        <input type="number" class="qtd-item" data-nome="Bombom de Morango" data-preco="18.00" min="0" value="0" onchange="atualizarCarrinho()">
+      </div>
+    </div>
+
+    <!-- Cartão 5: Bombom de Uva -->
+    <div class="card">
+      <div class="container-imagem">
+        <img src="/static/imagens/bbduva.jpeg" alt="Bombom de Uva" class="img-doce">
+      </div>
+      <h3>Bombom de Uva</h3>
+      <p class="preco">R$ 18,00</p>
+      <div class="area-qtd">
+        <label>Quantidade:</label>
+        <input type="number" class="qtd-item" data-nome="Bombom de Uva" data-preco="18.00" min="0" value="0" onchange="atualizarCarrinho()">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SEÇÃO DE FECHAMENTO DE PEDIDO -->
+  <div class="secao-pedido">
+    <h2>Pronto para enviar seu pedido?</h2>
+
+    <!-- NOME DO CLIENTE -->
+    <div class="area-opcao">
+      <label for="nome-cliente" class="label-opcao">Seu Nome:</label>
+      <input type="text" id="nome-cliente" class="input-texto" placeholder="Digite seu nome completo">
+    </div>
+
+    <!-- TIPO DE ENTREGA -->
+    <div class="area-opcao">
+      <label for="tipo-entrega" class="label-opcao">Entrega ou Retirada:</label>
+      <select id="tipo-entrega" class="select-opcao">
+        <option value="Retirada no Local">Retirar no Local</option>
+        <option value="Entrega em Domicílio">Entrega em Domicílio</option>
+      </select>
+    </div>
+
+    <!-- FORMA DE PAGAMENTO -->
+    <div class="area-opcao">
+      <label for="forma-pagamento" class="label-opcao">Forma de Pagamento:</label>
+      <select id="forma-pagamento" class="select-opcao">
+        <option value="Pix">Pix</option>
+        <option value="Cartão de Crédito">Cartão de Crédito</option>
+        <option value="Cartão de Débito">Cartão de Débito</option>
+        <option value="Dinheiro">Dinheiro</option>
+      </select>
+    </div>
+
+    <!-- AVISO DE FRETE -->
+    <div class="aviso-frete">
+      <p>💡 <strong>Atenção:</strong> Em caso de entrega, o valor total do pedido poderá ter acréscimo do taxa de frete. O valor reajustado será confirmado via WhatsApp.</p>
+    </div>
+
+    <button type="button" onclick="enviarPedidoWhatsApp()" class="btn-whatsapp">
+      <svg class="icone-whatsapp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7C49.6 323.3 39 288.5 39 252c0-101.9 82.9-184.8 184.8-184.8 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.8-186.4 184.8zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+      </svg>
+      <span>Enviar Pedido via WhatsApp</span>
+    </button>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p class="amor">Feito com amor por Ludoces ❤️</p>
+    <p class="instagram">Siga-nos no Instagram: <a href="https://instagram.com/ludoces_01" target="_blank">@ludoces</a></p>
+    <p class="direitos">&copy; 2026 Ludoces. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- BARRA DO CARRINHO FLUTUANTE -->
+  <div class="carrinho-flutuante" id="carrinho">
+    <div class="info-carrinho">
+      <span id="qtd-total">0 itens</span>
+      <span id="valor-total">R$ 0,00</span>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function atualizarCarrinho() {
+      const inputs = document.querySelectorAll('.qtd-item');
+      let totalQtd = 0;
+      let totalValor = 0;
+
+      inputs.forEach(input => {
+        const qtd = parseInt(input.value) || 0;
+        const preco = parseFloat(input.getAttribute('data-preco')) || 0;
+        if (qtd > 0) {
+          totalQtd += qtd;
+          totalValor += qtd * preco;
+        }
+      });
+
+      const carrinhoEl = document.getElementById('carrinho');
+      document.getElementById('qtd-total').innerText = totalQtd + (totalQtd === 1 ? ' item' : ' itens');
+      document.getElementById('valor-total').innerText = 'R$ ' + totalValor.toFixed(2).replace('.', ',');
+
+      if (totalQtd > 0) {
+        carrinhoEl.classList.add('ativo');
+      } else {
+        carrinhoEl.classList.remove('ativo');
+      }
+    }
+
+    function enviarPedidoWhatsApp() {
+      const nomeCliente = document.getElementById('nome-cliente').value.trim();
+
+      if (!nomeCliente) {
+        alert('Por favor, informe o seu nome!');
+        document.getElementById('nome-cliente').focus();
+        return;
+      }
+
+      const inputs = document.querySelectorAll('.qtd-item');
+      let itensPedido = [];
+      let totalValor = 0;
+
+      inputs.forEach(input => {
+        const qtd = parseInt(input.value) || 0;
+        if (qtd > 0) {
+          const nome = input.getAttribute('data-nome');
+          const preco = parseFloat(input.getAttribute('data-preco'));
+          const selectId = input.getAttribute('data-select');
+          let saborTexto = '';
+
+          if (selectId) {
+            const selectEl = document.getElementById(selectId);
+            if (selectEl) {
+              saborTexto = ` (${selectEl.value})`;
+            }
+          }
+
+          const subtotal = qtd * preco;
+          totalValor += subtotal;
+          itensPedido.push(`• ${qtd}x ${nome}${saborTexto} - R$ ${subtotal.toFixed(2).replace('.', ',')}`);
+        }
+      });
+
+      if (itensPedido.length === 0) {
+        alert('Por favor, adicione pelo menos 1 item ao seu pedido!');
+        return;
+      }
+
+      const tipoEntrega = document.getElementById('tipo-entrega').value;
+      const formaPagamento = document.getElementById('forma-pagamento').value;
+
+      let mensagem = `*Novo Pedido - Ludoces* 🧁\n\n`;
+      mensagem += `*Cliente:* ${nomeCliente}\n\n`;
+      mensagem += `*Itens do Pedido:*\n`;
+      mensagem += itensPedido.join('\n');
+      mensagem += `\n\n*Opção:* ${tipoEntrega}`;
+      mensagem += `\n*Pagamento:* ${formaPagamento}`;
+      mensagem += `\n*Subtotal:* R$ ${totalValor.toFixed(2).replace('.', ',')}`;
+
+      if (tipoEntrega === 'Entrega em Domicílio') {
+        mensagem += `\n\n_(Aguardando confirmação da taxa de frete)_`;
+      }
+
+      const numeroWhatsApp = "5527998599941"; // Insira o seu número do WhatsApp com DDD
+      const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>

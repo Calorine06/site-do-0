@@ -1,0 +1,329 @@
+/* --- RESET E ESTILOS GERAIS --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f8bbd0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #2c2c2c;
+  padding: 30px 15px 100px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- CABEÇALHO --- */
+.cabecalho {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo {
+  width: 95px !important;
+  height: 95px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 18px rgba(136, 14, 79, 0.25);
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+h1 {
+  color: #880e4f;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.cabecalho p {
+  color: #ad1457;
+  font-size: 14px;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.titulo-cardapio {
+  color: #880e4f;
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- ESTRUTURA DO CARDÁPIO --- */
+.cardapio-container {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* --- CARTÃO FLUTUANTE DO DOCE --- */
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px;
+  border: 2px solid #f48fb1;
+  box-shadow: 0 10px 25px rgba(136, 14, 79, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(136, 14, 79, 0.2);
+}
+
+/* --- IMAGEM --- */
+.container-imagem {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.img-doce {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .img-doce {
+  transform: scale(1.03);
+}
+
+/* --- CONTEÚDO DO DOCE --- */
+h3 {
+  color: #880e4f;
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.area-sabor {
+  margin-bottom: 12px;
+}
+
+.area-sabor label {
+  display: block;
+  font-size: 13px;
+  color: #555555;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.select-sabor, .select-opcao, .input-texto {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1.5px solid #f48fb1;
+  background-color: #fff5f8;
+  font-size: 14px;
+  color: #333333;
+  outline: none;
+  font-weight: 600;
+}
+
+.input-texto::placeholder {
+  color: #a0a0a0;
+  font-weight: 400;
+}
+
+.preco {
+  font-size: 19px;
+  font-weight: 800;
+  color: #c2185b;
+  text-align: right;
+  margin: 10px 0;
+}
+
+.area-qtd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1.5px dashed #f48fb1;
+}
+
+.area-qtd label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4a4a4a;
+}
+
+.qtd-item {
+  width: 60px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1.5px solid #f48fb1;
+  background-color: #fff5f8;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #880e4f;
+  outline: none;
+}
+
+/* --- SEÇÃO FINAL E BOTÃO WHATSAPP --- */
+.secao-pedido {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.secao-pedido h2 {
+  font-size: 18px;
+  color: #880e4f;
+  margin-bottom: 18px;
+  font-weight: 800;
+}
+
+.label-opcao {
+  display: block;
+  font-size: 13px;
+  color: #880e4f;
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.area-opcao {
+  margin-bottom: 18px;
+}
+
+/* --- AVISO SOBRE O FRETE --- */
+.aviso-frete {
+  background-color: #fff5f8;
+  border: 1px solid #f48fb1;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.aviso-frete p {
+  font-size: 12px;
+  color: #880e4f;
+  line-height: 1.4;
+}
+
+/* --- BOTÃO WHATSAPP --- */
+.btn-whatsapp {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25d366 0%, #075e54 100%);
+  color: #ffffff;
+  border: none;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+
+.icone-whatsapp {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* --- RODAPÉ --- */
+.rodape {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px dashed #f48fb1;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+.rodape .amor {
+  font-size: 15px;
+  font-weight: 700;
+  color: #880e4f;
+  margin-bottom: 6px;
+}
+
+.rodape .instagram {
+  font-size: 13px;
+  color: #ad1457;
+  margin-bottom: 8px;
+}
+
+.rodape .instagram a {
+  color: #880e4f;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.rodape .instagram a:hover {
+  text-decoration: underline;
+}
+
+.rodape .direitos {
+  font-size: 11px;
+  color: #666666;
+}
+
+/* --- CARRINHO FLUTUANTE (HORIZONTAL) --- */
+.carrinho-flutuante {
+  position: fixed;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 30px);
+  max-width: 420px;
+  background: #880e4f;
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: bottom 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+}
+
+.carrinho-flutuante.ativo {
+  bottom: 20px;
+}
+
+.info-carrinho {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+#qtd-total {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+#valor-total {
+  font-size: 18px;
+  color: #ffeb3b;
+}
