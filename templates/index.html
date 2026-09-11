@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python do Zero - 100+ Exercícios Fáceis</title>
+  <style>
+    :root {
+      --bg-color: #f0f4f8;
+      --card-bg: #ffffff;
+      --primary: #2b5b84;
+      --primary-hover: #1e3d59;
+      --text: #2b2d42;
+      --success: #2a9d8f;
+      --error: #e76f51;
+      --easy: #2a9d8f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #666;
+    }
+
+    .stats {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-around;
+      font-weight: bold;
+      background: #e9ecef;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .quiz-card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+      border-left: 5px solid var(--primary);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      padding: 4px 12px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      background-color: var(--easy);
+    }
+
+    .question-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Consolas', 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    input.blank {
+      background-color: #2d2d2d;
+      border: 2px solid #4ec9b0;
+      color: #ce9178;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 2px 8px;
+      border-radius: 4px;
+      min-width: 70px;
+      max-width: 150px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    input.blank:focus {
+      outline: none;
+      border-color: #9cdcfe;
+      box-shadow: 0 0 5px rgba(156, 220, 254, 0.5);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .feedback {
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 6px;
+      display: none;
+      font-size: 0.95rem;
+    }
+
+    .feedback.correct {
+      display: inline-block;
+      color: #ffffff;
+      background-color: var(--success);
+    }
+
+    .feedback.incorrect {
+      display: inline-block;
+      color: #ffffff;
+      background-color: var(--error);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>🐍 Python do Zero - 112 Exercícios Fáceis</h1>
+      <p>Aprenda na prática! Preencha a lacuna em cada código e clique em <b>Verificar</b>.</p>
+      <div class="stats">
+        <span>Total: <span id="total-count">0</span></span>
+        <span>Acertos: <span id="correct-count" style="color: var(--success)">0</span></span>
+      </div>
+    </header>
+
+    <div id="quiz-container"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {"id": 1, "difficulty": "fácil", "title": "1. Imprimir uma mensagem 'Olá Mundo'", "code": "print(\"___\")", "answers": ["Olá Mundo"]},
+      {"id": 2, "difficulty": "fácil", "title": "2. Exibir o texto 'Bem-vindo'", "code": "print(\"___\")", "answers": ["Bem-vindo"]},
+      {"id": 3, "difficulty": "fácil", "title": "3. Imprimir o número 10", "code": "print(___)", "answers": ["10"]},
+      {"id": 4, "difficulty": "fácil", "title": "4. Imprimir o texto 'Python é legal'", "code": "___(\"Python é legal\")", "answers": ["print"]},
+      {"id": 5, "difficulty": "fácil", "title": "5. Imprimir duas palavras separadas", "code": "print(\"Olá\", \"___\")", "answers": ["Mundo"]},
+      {"id": 6, "difficulty": "fácil", "title": "6. Criar uma variável chamada 'idade' com valor 18", "code": "idade = ___", "answers": ["18"]},
+      {"id": 7, "difficulty": "fácil", "title": "7. Criar uma variável chamada 'nome' com o texto 'Ana'", "code": "nome = \"___\"", "answers": ["Ana"]},
+      {"id": 8, "difficulty": "fácil", "title": "8. Atribuir o valor True para a variável 'ligado'", "code": "ligado = ___", "answers": ["True"]},
+      {"id": 9, "difficulty": "fácil", "title": "9. Atribuir o valor False para a variável 'chovendo'", "code": "chovendo = ___", "answers": ["False"]},
+      {"id": 10, "difficulty": "fácil", "title": "10. Criar uma variável 'preco' com o valor 19.99", "code": "preco = ___", "answers": ["19.99"]},
+      {"id": 11, "difficulty": "fácil", "title": "11. Atribuir o valor de uma variável a outra", "code": "x = 5\ny = ___", "answers": ["x"]},
+      {"id": 12, "difficulty": "fácil", "title": "12. Imprimir o valor armazenado na variável 'nome'", "code": "nome = \"Carlos\"\nprint(___)", "answers": ["nome"]},
+      {"id": 13, "difficulty": "fácil", "title": "13. Imprimir o tipo de uma variável inteira", "code": "x = 10\nprint(___(x))", "answers": ["type"]},
+      {"id": 14, "difficulty": "fácil", "title": "14. Converter um número inteiro em texto (string)", "code": "numero = 10\ntexto = ___(numero)", "answers": ["str"]},
+      {"id": 15, "difficulty": "fácil", "title": "15. Converter uma texto com número para inteiro", "code": "texto = \"5\"\nnumero = ___(texto)", "answers": ["int"]},
+      {"id": 16, "difficulty": "fácil", "title": "16. Converter um número para ponto flutuante (float)", "code": "numero = 5\ndecimal = ___(numero)", "answers": ["float"]},
+      {"id": 17, "difficulty": "fácil", "title": "17. Somar dois números (5 e 3)", "code": "resultado = 5 ___ 3", "answers": ["+"]},
+      {"id": 18, "difficulty": "fácil", "title": "18. Subtrair dois números (10 e 4)", "code": "resultado = 10 ___ 4", "answers": ["-"]},
+      {"id": 19, "difficulty": "fácil", "title": "19. Multiplicar dois números (4 e 2)", "code": "resultado = 4 ___ 2", "answers": ["*"]},
+      {"id": 20, "difficulty": "fácil", "title": "20. Dividir dois números (10 por 2)", "code": "resultado = 10 ___ 2", "answers": ["/"]},
+      {"id": 21, "difficulty": "fácil", "title": "21. Calcular o resto da divisão de 10 por 3", "code": "resto = 10 ___ 3", "answers": ["%"]},
+      {"id": 22, "difficulty": "fácil", "title": "22. Calcular 2 elevado à potência de 3", "code": "potencia = 2 ___ 3", "answers": ["**"]},
+      {"id": 23, "difficulty": "fácil", "title": "23. Divisão inteira de 9 por 2", "code": "resultado = 9 ___ 2", "answers": ["//"]},
+      {"id": 24, "difficulty": "fácil", "title": "24. Incrementar uma variável em 1", "code": "contador = 0\ncontador += ___", "answers": ["1"]},
+      {"id": 25, "difficulty": "fácil", "title": "25. Decrementar uma variável em 1", "code": "contador = 10\ncontador -= ___", "answers": ["1"]},
+      {"id": 26, "difficulty": "fácil", "title": "26. Dobrar o valor de uma variável", "code": "valor = 5\nvalor *= ___", "answers": ["2"]},
+      {"id": 27, "difficulty": "fácil", "title": "27. Verificar se 5 é maior que 3", "code": "resultado = 5 ___ 3", "answers": [">"]},
+      {"id": 28, "difficulty": "fácil", "title": "28. Verificar se 2 é menor que 8", "code": "resultado = 2 ___ 8", "answers": ["<"]},
+      {"id": 29, "difficulty": "fácil", "title": "29. Verificar igualdade entre dois valores", "code": "resultado = (5 ___ 5)", "answers": ["=="]},
+      {"id": 30, "difficulty": "fácil", "title": "30. Verificar se dois valores são diferentes", "code": "resultado = (5 ___ 3)", "answers": ["!="]},
+      {"id": 31, "difficulty": "fácil", "title": "31. Verificar se 10 é maior ou igual a 10", "code": "resultado = 10 ___ 10", "answers": [">="]},
+      {"id": 32, "difficulty": "fácil", "title": "32. Verificar se 4 é menor ou igual a 5", "code": "resultado = 4 ___ 5", "answers": ["<="]},
+      {"id": 33, "difficulty": "fácil", "title": "33. Usar 'if' para checar se a idade é maior ou igual a 18", "code": "idade = 20\n___ idade >= 18:\n    print(\"Maior de idade\")", "answers": ["if"]},
+      {"id": 34, "difficulty": "fácil", "title": "34. Usar 'else' para o caso contrário do 'if'", "code": "idade = 15\nif idade >= 18:\n    print(\"Maior\")\n___:\n    print(\"Menor\")", "answers": ["else"]},
+      {"id": 35, "difficulty": "fácil", "title": "35. Usar 'elif' para checar uma segunda condição", "code": "nota = 7\nif nota >= 9:\n    print(\"Excelente\")\n___ nota >= 7:\n    print(\"Bom\")", "answers": ["elif"]},
+      {"id": 36, "difficulty": "fácil", "title": "36. Verificar se um número é positivo", "code": "numero = 5\nif numero ___ 0:\n    print(\"Positivo\")", "answers": [">"]},
+      {"id": 37, "difficulty": "fácil", "title": "37. Verificar se um número é igual a zero", "code": "numero = 0\nif numero ___ 0:\n    print(\"Zero\")", "answers": ["=="]},
+      {"id": 38, "difficulty": "fácil", "title": "38. Usar o operador 'and' para duas condições verdadeiras", "code": "x = 5\nif x > 0 ___ x < 10:\n    print(\"Entre 0 e 10\")", "answers": ["and"]},
+      {"id": 39, "difficulty": "fácil", "title": "39. Usar o operador 'or' para ao menos uma condição verdadeira", "code": "cor = \"azul\"\nif cor == \"azul\" ___ cor == \"vermelho\":\n    print(\"Cor primária\")", "answers": ["or"]},
+      {"id": 40, "difficulty": "fácil", "title": "40. Inverter uma condição com 'not'", "code": "ativo = False\nif ___ ativo:\n    print(\"Inativo\")", "answers": ["not"]},
+      {"id": 41, "difficulty": "fácil", "title": "41. Pedir para o usuário digitar seu nome", "code": "nome = ___(\"Digite seu nome: \")", "answers": ["input"]},
+      {"id": 42, "difficulty": "fácil", "title": "42. Converter a entrada do usuário para número inteiro", "code": "idade = int(___(\"Digite sua idade: \"))", "answers": ["input"]},
+      {"id": 43, "difficulty": "fácil", "title": "43. Converter a entrada do usuário para número decimal", "code": "altura = float(___(\"Digite sua altura: \"))", "answers": ["input"]},
+      {"id": 44, "difficulty": "fácil", "title": "44. Juntar duas strings (concatenação)", "code": "nome = \"Ana\"\nsobrenome = \"Silva\"\ncompleto = nome + \" \" ___ sobrenome", "answers": ["+"]},
+      {"id": 45, "difficulty": "fácil", "title": "45. Transformar o texto em letras maiúsculas", "code": "texto = \"python\"\nprint(texto.___())", "answers": ["upper"]},
+      {"id": 46, "difficulty": "fácil", "title": "46. Transformar o texto em letras minúsculas", "code": "texto = \"PYTHON\"\nprint(texto.___())", "answers": ["lower"]},
+      {"id": 47, "difficulty": "fácil", "title": "47. Contar quantos caracteres existem na string", "code": "texto = \"Brasil\"\ntamanho = ___(texto)", "answers": ["len"]},
+      {"id": 48, "difficulty": "fácil", "title": "48. Obter a primeira letra de uma palavra", "code": "palavra = \"Python\"\nprimeira = palavra[___]", "answers": ["0"]},
+      {"id": 49, "difficulty": "fácil", "title": "49. Repetir uma string 3 vezes", "code": "texto = \"Oi! \"\nprint(texto ___ 3)", "answers": ["*"]},
+      {"id": 50, "difficulty": "fácil", "title": "50. Substituir uma palavra na string", "code": "frase = \"Eu gosto de Java\"\nnova = frase.___(\"Java\", \"Python\")", "answers": ["replace"]},
+      {"id": 51, "difficulty": "fácil", "title": "51. Verificar se uma palavra está contida em um texto", "code": "frase = \"Aprender Python é divertido\"\nresultado = \"Python\" ___ frase", "answers": ["in"]},
+      {"id": 52, "difficulty": "fácil", "title": "52. Criar uma lista com 3 números", "code": "numeros = [1, 2, ___]", "answers": ["3"]},
+      {"id": 53, "difficulty": "fácil", "title": "53. Acessar o primeiro item da lista", "code": "frutas = [\"maçã\", \"banana\", \"uva\"]\nprimeira = frutas[___]", "answers": ["0"]},
+      {"id": 54, "difficulty": "fácil", "title": "54. Acessar o último item da lista usando índice negativo", "code": "frutas = [\"maçã\", \"banana\", \"uva\"]\nultima = frutas[___]", "answers": ["-1"]},
+      {"id": 55, "difficulty": "fácil", "title": "55. Adicionar o número 4 ao final da lista", "code": "numeros = [1, 2, 3]\nnumeros.___(4)", "answers": ["append"]},
+      {"id": 56, "difficulty": "fácil", "title": "56. Remover um elemento da lista pelo valor", "code": "frutas = [\"maçã\", \"banana\"]\nfrutas.___(\"banana\")", "answers": ["remove"]},
+      {"id": 57, "difficulty": "fácil", "title": "57. Saber a quantidade de itens na lista", "code": "lista = [10, 20, 30]\ntamanho = ___(lista)", "answers": ["len"]},
+      {"id": 58, "difficulty": "fácil", "title": "58. Alterar o valor do segundo item da lista", "code": "cores = [\"azul\", \"verde\"]\ncores[1] = \"___\"", "answers": ["amarelo"]},
+      {"id": 59, "difficulty": "fácil", "title": "59. Limpar todos os elementos de uma lista", "code": "numeros = [1, 2, 3]\nnumeros.___()", "answers": ["clear"]},
+      {"id": 60, "difficulty": "fácil", "title": "60. Ordenar uma lista de números em ordem crescente", "code": "numeros = [3, 1, 2]\nnumeros.___()", "answers": ["sort"]},
+      {"id": 61, "difficulty": "fácil", "title": "61. Inverter a ordem dos elementos da lista", "code": "numeros = [1, 2, 3]\nnumeros.___()", "answers": ["reverse"]},
+      {"id": 62, "difficulty": "fácil", "title": "62. Repetir 5 vezes usando range no for", "code": "for i in range(___):\n    print(i)", "answers": ["5"]},
+      {"id": 63, "difficulty": "fácil", "title": "63. Percorrer cada item de uma lista", "code": "frutas = [\"maçã\", \"banana\"]\nfor item ___ frutas:\n    print(item)", "answers": ["in"]},
+      {"id": 64, "difficulty": "fácil", "title": "64. Criar um loop while que roda enquanto x for menor que 5", "code": "x = 0\n___ x < 5:\n    print(x)\n    x += 1", "answers": ["while"]},
+      {"id": 65, "difficulty": "fácil", "title": "65. Interromper um loop usando break", "code": "for i in range(10):\n    if i == 5:\n        ___\n    print(i)", "answers": ["break"]},
+      {"id": 66, "difficulty": "fácil", "title": "66. Pular para a próxima repetição usando continue", "code": "for i in range(5):\n    if i == 2:\n        ___\n    print(i)", "answers": ["continue"]},
+      {"id": 67, "difficulty": "fácil", "title": "67. Usar range com início e fim (de 1 a 4)", "code": "for i in range(1, ___):\n    print(i)", "answers": ["5"]},
+      {"id": 68, "difficulty": "fácil", "title": "68. Usar range com passo de 2 em 2 (0, 2, 4)", "code": "for i in range(0, 6, ___):\n    print(i)", "answers": ["2"]},
+      {"id": 69, "difficulty": "fácil", "title": "69. Definir uma função simples chamada 'saudacao'", "code": "___ saudacao():\n    print(\"Olá!\")", "answers": ["def"]},
+      {"id": 70, "difficulty": "fácil", "title": "70. Chamar uma função criada", "code": "def dar_oi():\n    print(\"Oi\")\n\n___()", "answers": ["dar_oi"]},
+      {"id": 71, "difficulty": "fácil", "title": "71. Função que recebe um parâmetro 'nome'", "code": "def saudar(___):\n    print(\"Olá\", nome)", "answers": ["nome"]},
+      {"id": 72, "difficulty": "fácil", "title": "72. Retornar um valor de dentro da função", "code": "def somar(a, b):\n    ___ a + b", "answers": ["return"]},
+      {"id": 73, "difficulty": "fácil", "title": "73. Função com dois parâmetros", "code": "def multiplicar(a, ___):\n    return a * b", "answers": ["b"]},
+      {"id": 74, "difficulty": "fácil", "title": "74. Criar uma tupla simples de 2 elementos", "code": "ponto = (10, ___)", "answers": ["20"]},
+      {"id": 75, "difficulty": "fácil", "title": "75. Criar um dicionário com uma chave 'nome'", "code": "pessoa = {\"___\": \"Maria\"}", "answers": ["nome"]},
+      {"id": 76, "difficulty": "fácil", "title": "76. Acessar o valor de uma chave no dicionário", "code": "pessoa = {\"idade\": 25}\nprint(pessoa[\"___\"])", "answers": ["idade"]},
+      {"id": 77, "difficulty": "fácil", "title": "77. Adicionar uma nova chave ao dicionário", "code": "pessoa = {\"nome\": \"Ana\"}\npessoa[\"___\"] = 20", "answers": ["idade"]},
+      {"id": 78, "difficulty": "fácil", "title": "78. Obter todas as chaves de um dicionário", "code": "pessoa = {\"nome\": \"Leo\", \"idade\": 30}\nchaves = pessoa.___()", "answers": ["keys"]},
+      {"id": 79, "difficulty": "fácil", "title": "79. Obter todos os valores de um dicionário", "code": "pessoa = {\"nome\": \"Leo\", \"idade\": 30}\nvalores = pessoa.___()", "answers": ["values"]},
+      {"id": 80, "difficulty": "fácil", "title": "80. Criar um conjunto (set) de números", "code": "numeros = {1, 2, ___}", "answers": ["3"]},
+      {"id": 81, "difficulty": "fácil", "title": "81. Adicionar um elemento ao conjunto", "code": "frutas = {\"maçã\"}\nfrutas.___(\"banana\")", "answers": ["add"]},
+      {"id": 82, "difficulty": "fácil", "title": "82. Verificar se um número é par (resto da divisão por 2 igual a 0)", "code": "num = 4\nif num % 2 ___ 0:\n    print(\"Par\")", "answers": ["=="]},
+      {"id": 83, "difficulty": "fácil", "title": "83. Verificar se um número é ímpar", "code": "num = 7\nif num % 2 ___ 0:\n    print(\"Ímpar\")", "answers": ["!="]},
+      {"id": 84, "difficulty": "fácil", "title": "84. Somar números de 1 a 3 em um acumulador", "code": "soma = 0\nfor i in [1, 2, 3]:\n    soma += ___\nprint(soma)", "answers": ["i"]},
+      {"id": 85, "difficulty": "fácil", "title": "85. Contar quantas vezes um loop é executado", "code": "contador = 0\nfor i in range(5):\n    contador += ___\nprint(contador)", "answers": ["1"]},
+      {"id": 86, "difficulty": "fácil", "title": "86. Encontrar o maior número entre dois usando max()", "code": "maior = ___(10, 20)", "answers": ["max"]},
+      {"id": 87, "difficulty": "fácil", "title": "87. Encontrar o menor número usando min()", "code": "menor = ___(10, 20)", "answers": ["min"]},
+      {"id": 88, "difficulty": "fácil", "title": "88. Calcular o valor absoluto de um número negativo", "code": "positivo = ___(-5)", "answers": ["abs"]},
+      {"id": 89, "difficulty": "fácil", "title": "89. Arredondar um número decimal", "code": "arredondado = ___(5.7)", "answers": ["round"]},
+      {"id": 90, "difficulty": "fácil", "title": "90. Somar todos os elementos de uma lista com sum()", "code": "numeros = [1, 2, 3]\ntotal = ___(numeros)", "answers": ["sum"]},
+      {"id": 91, "difficulty": "fácil", "title": "91. Imprimir mensagem com f-string", "code": "nome = \"Ana\"\nprint(f\"Olá, {___}\")", "answers": ["nome"]},
+      {"id": 92, "difficulty": "fácil", "title": "92. Imprimir resultado de cálculo dentro de f-string", "code": "a = 5\nb = 3\nprint(f\"Soma: {a ___ b}\")", "answers": ["+"]},
+      {"id": 93, "difficulty": "fácil", "title": "93. Definir uma lista vazia", "code": "minha_lista = ___", "answers": ["[]"]},
+      {"id": 94, "difficulty": "fácil", "title": "94. Definir um dicionário vazio", "code": "meu_dic = ___", "answers": ["{}"]},
+      {"id": 95, "difficulty": "fácil", "title": "95. Definir um valor nulo (None) para uma variável", "code": "resposta = ___", "answers": ["None"]},
+      {"id": 96, "difficulty": "fácil", "title": "96. Acessar o segundo caractere de uma string", "code": "palavra = \"Sol\"\nsegundo = palavra[___]", "answers": ["1"]},
+      {"id": 97, "difficulty": "fácil", "title": "97. Verificar se uma string começa com 'A'", "code": "texto = \"Abacaxi\"\nprint(texto.startswith(\"___\"))", "answers": ["A"]},
+      {"id": 98, "difficulty": "fácil", "title": "98. Verificar se uma string termina com 'o'", "code": "texto = \"Gato\"\nprint(texto.endswith(\"___\"))", "answers": ["o"]},
+      {"id": 99, "difficulty": "fácil", "title": "99. Remover espaços extras no início e fim de um texto", "code": "texto = \"  olá  \"\nlimpo = texto.___()", "answers": ["strip"]},
+      {"id": 100, "difficulty": "fácil", "title": "100. Dividir um texto em uma lista de palavras", "code": "frase = \"Aprender Python\"\npalavras = frase.___()", "answers": ["split"]},
+      {"id": 101, "difficulty": "fácil", "title": "101. Juntar elementos de uma lista de textos em uma única string", "code": "palavras = [\"Python\", \"é\", \"fácil\"]\nfrase = \" \".___(palavras)", "answers": ["join"]},
+      {"id": 102, "difficulty": "fácil", "title": "102. Converter um número negativo para positivo", "code": "num = -10\nprint(___(num))", "answers": ["abs"]},
+      {"id": 103, "difficulty": "fácil", "title": "103. Definir uma constante aproximada de PI como float", "code": "pi = ___", "answers": ["3.14"]},
+      {"id": 104, "difficulty": "fácil", "title": "104. Atribuir múltiplos valores em uma única linha", "code": "a, b = 1, ___", "answers": ["2"]},
+      {"id": 105, "difficulty": "fácil", "title": "105. Duplicar os elementos de uma lista com multiplicação", "code": "lista = [1, 2]\nduplicada = lista ___ 2", "answers": ["*"]},
+      {"id": 106, "difficulty": "fácil", "title": "106. Verificar se uma lista está vazia", "code": "lista = []\nif ___ lista:\n    print(\"A lista está vazia\")", "answers": ["not"]},
+      {"id": 107, "difficulty": "fácil", "title": "107. Obter o índice de um elemento na lista", "code": "frutas = [\"maçã\", \"banana\"]\nposicao = frutas.___(\"banana\")", "answers": ["index"]},
+      {"id": 108, "difficulty": "fácil", "title": "108. Inserir um elemento na posição 0 da lista", "code": "numeros = [2, 3]\nnumeros.___(0, 1)", "answers": ["insert"]},
+      {"id": 109, "difficulty": "fácil", "title": "109. Remover e retornar o último elemento de uma lista", "code": "numeros = [1, 2, 3]\nultimo = numeros.___()", "answers": ["pop"]},
+      {"id": 110, "difficulty": "fácil", "title": "110. Repetir uma frase 3 vezes usando loop while", "code": "c = 0\nwhile c < 3:\n    print(\"Oi\")\n    c += ___", "answers": ["1"]},
+      {"id": 111, "difficulty": "fácil", "title": "111. Estrutura condicional completa", "code": "num = 5\nif num > 0:\n    print(\"Positivo\")\n___:\n    print(\"Não positivo\")", "answers": ["else"]},
+      {"id": 112, "difficulty": "fácil", "title": "112. Comparação de não igualdade", "code": "status = \"offline\"\nif status ___ \"online\":\n    print(\"Desconectado\")", "answers": ["!="]}
+    ];
+
+    let correctSet = new Set();
+    document.getElementById("total-count").textContent = questions.length;
+
+    function renderQuiz() {
+      const container = document.getElementById("quiz-container");
+
+      questions.forEach((q, qIndex) => {
+        const card = document.createElement("div");
+        card.className = "quiz-card";
+
+        let answerCounter = 0;
+        const formattedCode = q.code.replace(/___/g, () => {
+          const inputHtml = `<input type="text" class="blank" data-q="${qIndex}" data-a="${answerCounter}" autocomplete="off" spellcheck="false">`;
+          answerCounter++;
+          return inputHtml;
+        });
+
+        card.innerHTML = `
+          <div class="card-header">
+            <span class="question-title">${q.title}</span>
+            <span class="badge">${q.difficulty}</span>
+          </div>
+          <pre><code>${formattedCode}</code></pre>
+          <div class="actions">
+            <button onclick="checkAnswer(${qIndex})">Verificar</button>
+            <span id="feedback-${qIndex}" class="feedback"></span>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function checkAnswer(questionIndex) {
+      const q = questions[questionIndex];
+      const inputs = document.querySelectorAll(`input[data-q="${questionIndex}"]`);
+      const feedbackEl = document.getElementById(`feedback-${questionIndex}`);
+      
+      let allCorrect = true;
+
+      inputs.forEach((input) => {
+        const answerIndex = parseInt(input.getAttribute("data-a"));
+        const userAnswer = input.value.trim();
+        const expectedAnswer = q.answers[answerIndex];
+
+        if (userAnswer !== expectedAnswer) {
+          allCorrect = false;
+        }
+      });
+
+      if (allCorrect) {
+        feedbackEl.textContent = "✓ Correto!";
+        feedbackEl.className = "feedback correct";
+        correctSet.add(questionIndex);
+      } else {
+        feedbackEl.textContent = "✗ Tente novamente";
+        feedbackEl.className = "feedback incorrect";
+        correctSet.delete(questionIndex);
+      }
+
+      document.getElementById("correct-count").textContent = correctSet.size;
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>
