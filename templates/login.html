@@ -28,11 +28,10 @@
       <div class="area-sabor">
         <label for="sabor-cone">Escolha o Sabor:</label>
         <select id="sabor-cone" class="select-sabor">
-          <option value="Chocolate">Chocolate</option>
-          <option value="Ninho">Ninho</option>
-          <option value="Oreo">Oreo</option>
+          <option value="Avelã Crocante">Avelã Crocante</option>
+          <option value="Ovomaltine">Ovomaltine</option>
           <option value="Maracujá">Maracujá</option>
-          <option value="Morango">Morango</option>
+          <option value="Prestígio">Prestígio</option>
         </select>
       </div>
       <p class="preco">R$ 12,00</p>
@@ -49,14 +48,10 @@
       </div>
       <h3>Palha Italiana</h3>
       <div class="area-sabor">
-        <label for="sabor-palha">Escolha o Sabor:</label>
-        <select id="sabor-palha" class="select-sabor">
-          <option value="Tradicional">Tradicional</option>
-          <option value="Ninho">Ninho</option>
-          <option value="Oreo">Oreo</option>
+         <p class="preco">Tradicional</p>
         </select>
       </div>
-      <p class="preco">R$ 11,00</p>
+      <p class="preco">R$ 6,00</p>
       <div class="area-qtd">
         <label>Quantidade:</label>
         <input type="number" class="qtd-item" data-nome="Palha Italiana" data-preco="11.00" data-select="sabor-palha" min="0" value="0" onchange="atualizarCarrinho()">
@@ -74,13 +69,30 @@
         <select id="sabor-tortinhas" class="select-sabor">
           <option value="Limão">Limão</option>
           <option value="Maracujá">Maracujá</option>
-          <option value="Morango">Morango</option>
         </select>
       </div>
-      <p class="preco">R$ 16,00</p>
+      <p class="preco">R$ 12,00</p>
       <div class="area-qtd">
         <label>Quantidade:</label>
         <input type="number" class="qtd-item" data-nome="Tortinhas" data-preco="16.00" data-select="sabor-tortinhas" min="0" value="0" onchange="atualizarCarrinho()">
+      </div>
+    </div>
+    <div class="card">
+      <div class="container-imagem">
+        <img src="/static/imagens/Copo.jpeg" alt="Tortinhas" class="img-doce">
+      </div>
+    <h3>Copo da felicidade</h3>
+      <div class="area-sabor">
+        <label for="sabor-copo">Escolha o Sabor:</label>
+        <select id="sabor-copo" class="select-sabor">
+          <option value="Casadinho">Casadinho (Brownie, Ninho e Brigadeiro)</option>
+          <option value="Maracujá">Maracujá (Mousse de maracujá, Brigadeiro e Brownie)</option>
+        </select>
+      </div>
+      <p class="preco">R$ 22,00</p>
+      <div class="area-qtd">
+        <label>Quantidade:</label>
+        <input type="number" class="qtd-item" data-nome="Copo da felicidade" data-preco="22.00" data-select="sabor-copo" min="0" value="0" onchange="atualizarCarrinho()">
       </div>
     </div>
 
@@ -90,7 +102,7 @@
         <img src="/static/imagens/bbdmorango.jpeg" alt="Bombom de Morango" class="img-doce">
       </div>
       <h3>Bombom de Morango</h3>
-      <p class="preco">R$ 18,00</p>
+      <p class="preco">Indisponível no momento</p>
       <div class="area-qtd">
         <label>Quantidade:</label>
         <input type="number" class="qtd-item" data-nome="Bombom de Morango" data-preco="18.00" min="0" value="0" onchange="atualizarCarrinho()">
@@ -103,10 +115,10 @@
         <img src="/static/imagens/bbduva.jpeg" alt="Bombom de Uva" class="img-doce">
       </div>
       <h3>Bombom de Uva</h3>
-      <p class="preco">R$ 18,00</p>
+      <p class="preco">Indisponível no momento</p>
       <div class="area-qtd">
         <label>Quantidade:</label>
-        <input type="number" class="qtd-item" data-nome="Bombom de Uva" data-preco="18.00" min="0" value="0" onchange="atualizarCarrinho()">
+        <input type="number" class="qtd-item" data-nome="Bombom de Uva" data-preco="Indisponível" min="Indisponível" value="Indisponível" onchange="atualizarCarrinho()">
       </div>
     </div>
 
@@ -158,7 +170,7 @@
   <!-- RODAPÉ -->
   <footer class="rodape">
     <p class="amor">Feito com amor por Ludoces ❤️</p>
-    <p class="instagram">Siga-nos no Instagram: <a href="https://instagram.com/ludoces_01" target="_blank">@ludoces</a></p>
+    <p class="instagram">Siga-nos no Instagram: <a href="https://instagram.com/ludoces_01" target="_blank">@ludoces_01</a></p>
     <p class="direitos">&copy; 2026 Ludoces. Todos os direitos reservados.</p>
   </footer>
 
@@ -251,7 +263,7 @@
         mensagem += `\n\n_(Aguardando confirmação da taxa de frete)_`;
       }
 
-      const numeroWhatsApp = "5527998599941"; // Insira o seu número do WhatsApp com DDD
+      const numeroWhatsApp = "5527988259730"; 
       const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
 
       window.open(url, '_blank');

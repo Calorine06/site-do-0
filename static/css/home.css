@@ -327,3 +327,102 @@ h3 {
   font-size: 18px;
   color: #ffeb3b;
 }
+.card img, 
+.cardapio-container img {
+    width: 100%;
+    height: 380px;            /* Aumenta a altura para fotos na vertical */
+    object-fit: cover;        /* Preenche bem o card */
+    object-position: center;   /* Centraliza o produto no meio da foto */
+    border-radius: 12px;       /* Bordas arredondadas */
+    display: block;
+}
+
+/* Layout da grade de produtos */
+.cardapio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Estilo do Card individual */
+.card, .product-item {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* Ajuste proporcional e perfeito para TODAS as imagens */
+.card img, 
+.product-item img,
+.product-thumbnail-container img {
+    width: 100%;
+    height: 230px;              /* Altura ideal para destacar o produto */
+    object-fit: cover;          /* Preenche o espaço mantendo a qualidade */
+    object-position: center;     /* Mantém o doce sempre centralizado */
+    border-radius: 12px;        /* Bordas bem arredondadas */
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* Ajuste para fotos verticais aparecerem completas */
+.card img, 
+.product-item img,
+.product-thumbnail-container img {
+    width: 100%;
+    height: auto;               /* Deixa a altura se ajustar proporcionalmente à foto */
+    max-height: 420px;          /* Limite máximo para não ficar gigante demais */
+    object-fit: contain;        /* Mantém 100% da foto visível sem nenhum corte */
+    background-color: #fff;     /* Preenche o fundo com branco */
+    border-radius: 12px;        /* Bordas arredondadas */
+    display: block;
+    margin: 0 auto 12px auto;
+}
+
+/* Container que força a proporção vertical ideal das fotos */
+.product-thumbnail-container {
+    width: 100%;
+    aspect-ratio: 3 / 4;       /* Proporção portrait ideal para fotos de celular */
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #f8f8f8;
+    margin-bottom: 12px;
+}
+
+/* Ajuste da foto para focar no produto sem distorcer */
+.product-thumbnail-container img,
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* Preenche todo o container */
+    object-position: center 80%;/* Empurra a foto levemente para cima para focar na mão/doce */
+    border-radius: 12px;
+    display: block;
+}
+
+/* Container da imagem do produto */
+.product-thumbnail-container {
+    width: 100%;
+    height: 300px;              /* Altura ideal para fotos verticais */
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #fff;
+    margin-bottom: 12px;
+}
+
+/* Imagem ajustada para destacar o doce */
+.product-thumbnail-container img,
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* Preenche todo o quadrado sem distorcer */
+    object-position: center;     /* Centraliza o foco na foto */
+    border-radius: 12px;
+    display: block;
+}
