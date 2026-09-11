@@ -426,3 +426,185 @@ h3 {
     border-radius: 12px;
     display: block;
 }
+.cardapio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Aumentado de 280px para 320px */
+    gap: 24px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Container da imagem com altura maior */
+.product-thumbnail-container {
+    width: 100%;
+    height: 420px;               /* Aumentado para 420px para a foto ficar bem grande */
+    border-radius: 12px;
+    background-color: #fff0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+/* Imagem preenchendo o espaço maior */
+.product-thumbnail-container img,
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;          /* Exibe 100% da foto vertical sem cortar nada */
+    border-radius: 12px;
+    padding: 4px;
+}
+
+/* Container da imagem esticado na vertical */
+.product-thumbnail-container {
+    width: 200%;
+    height: 800px;               /* Altura aumentada para esticar verticalmente */
+    border-radius: 12px;
+    background-color: #fff0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* Imagem ajustada para ocupar todo o espaço vertical esticado */
+.product-thumbnail-container img,
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* Preenche 100% da altura e largura do container */
+    object-position: center;     /* Mantém o produto centralizado */
+    border-radius: 12px;
+}
+
+/* 1. Aumenta a LARGURA do card no grid */
+.cardapio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Aumentado para 380px para dar mais largura */
+    gap: 24px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* 2. Container da imagem mais LARGO e ALTO */
+.product-thumbnail-container {
+    width: 100%;
+    height: 480px;               /* Altura bem ampla */
+    border-radius: 12px;
+    background-color: #fff0f5;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+/* 3. Preenchimento total do espaço sem estreitar */
+.product-thumbnail-container img,
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* Preenche todo o espaço sem deixar bordas finas/estreitas */
+    object-position: center;     /* Centraliza o produto no meio do card */
+    border-radius: 12px;
+    display: block;
+}
+
+
+
+
+/* 1. Largura do card bem ampla no grid */
+.cardapio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* 2. Container com altura ideal para fotos de celular */
+.product-thumbnail-container {
+    width: 100%;
+    height: 480px;
+    border-radius: 12px;
+    background-color: #fff0f5; /* Fundo rosa claro que combina com o site */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+/* 3. Mostra 100% DA IMAGEM SEM NENHUM CORTE */
+.product-thumbnail-container img,
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;       /* MOSTRA A FOTO INTEIRA SEM CORTAR NADA */
+    border-radius: 12px;
+    padding: 8px;              /* Espaçamento suave para as bordas */
+}
+
+
+/* 1. Tamanho do card ajustado no grid */
+.cardapio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* 2. Container proporcional que acompanha o formato natural da imagem */
+.product-thumbnail-container {
+    width: 100%;
+    aspect-ratio: 3 / 4;       /* Proporção vertical perfeita (estilo foto de celular) */
+    border-radius: 12px;
+    background-color: #fff0f5; /* Fundo suave para integração */
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+/* 3. Imagem ajustada sem cortes e sem ficar esticada */
+.product-thumbnail-container img,
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;       /* Exibe o produto 100% inteiro e sem deformar */
+    border-radius: 12px;
+    padding: 4px;
+    display: block;
+}
+
+
+
+
+/* 1. Alinha os cards na tela sem deixá-los gigantes ou esticados */
+.cardapio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 300px));
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+
+/* 2. Container da imagem com tamanho proporcional padrão */
+.product-thumbnail-container {
+    width: 100%;
+    height: 200px;              /* Altura proporcional para fotos verticais */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    margin-bottom: 12px;
+}
+
+/* 3. Imagem ajustada e centralizada no produto */
+.product-thumbnail-container img,
+.card img {
+    width: 95%;
+    height: 100%;
+    object-fit: cover;          /* Preenche o quadrado mantendo a proporção */
+    object-position: center;     /* Mantém o foco no meio da foto */
+    border-radius: 12px;
+    display: block;
+}
