@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comportamento do Ravi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 { 
+            color: #333; 
+            font-size: 24px; 
+            margin-bottom: 25px; 
+        }
+        .botoes { 
+            display: flex; 
+            justify-content: space-around; 
+            margin-bottom: 20px; 
+        }
+        button {
+            padding: 12px 30px; 
+            font-size: 18px; 
+            font-weight: bold;
+            border: none; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            transition: 0.2s;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        .btn-bem { 
+            background-color: #4CAF50; 
+            color: white; 
+        }
+        .btn-bem:hover {
+            background-color: #45a049;
+        }
+        .btn-mau { 
+            background-color: #f44336; 
+            color: white; 
+        }
+        .btn-mau:hover {
+            background-color: #da190b;
+        }
+        .resultado { 
+            margin-top: 20px; 
+            min-height: 320px; 
+        }
+        img {
+            max-width: 100%; 
+            height: 300px; 
+            border-radius: 15px;
+            object-fit: cover; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ei flor, como o Ravi se comportou na escola hoje?</h1>
+        
+        <div class="botoes">
+            <button class="btn-bem" onclick="mostrarResultado('bem')">Bem</button>
+    <button class="btn-mau" onclick="mostrarResultado('mau')">Mal</button>
+        </div>
+
+        <div class="resultado">
+            <img id="foto-bem" src="./Ravi Bem.jpeg" alt="Ravi bem">
+            <img id="foto-mau" src="./Ravi mal.jpeg" alt="Ravi mal">
+        </div>
+    </div>
+
+    <script>
+        function mostrarResultado(status) {
+            // Esconde as duas fotos antes de exibir a correta
+            document.getElementById('foto-bem').style.display = 'none';
+            document.getElementById('foto-mau').style.display = 'none';
+
+            // Mostra a foto certa baseada no botão clicado
+            if (status === 'bem') {
+                document.getElementById('foto-bem').style.display = 'inline-block';
+            } else if (status === 'mau') {
+                document.getElementById('foto-mau').style.display = 'inline-block';
+            }
+        }
+    </script>
+
+</body>
+</html>
