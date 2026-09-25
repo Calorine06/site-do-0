@@ -49,14 +49,16 @@
       </div>
       <h3>Bolo de Pote</h3>
       <div class="area-sabor">
-         <p class="preco">Casadinho (Brigadeiro braco e Massa de chocolate)</p>
-         <p class="preco">Red Velvet (Brigadeiro branco, Massa Red e Geleia de morango)</p>
-        </select>
-      </div>
+    <label for="sabor-bolo-pote">Escolha o Sabor:</label>
+    <select id="sabor-bolo-pote" class="select-sabor">
+        <option value="Casadinho">Casadinho (Brigadeiro branco e Massa de chocolate)</option>
+        <option value="Red Velvet">Red Velvet (Brigadeiro branco, Massa Red e Geleia de morango)</option>
+    </select>
+</div>
       <p class="preco">R$ 14,00</p>
       <div class="area-qtd">
         <label>Quantidade:</label>
-        <input type="number" class="qtd-item" data-nome="Palha Italiana" data-preco="14.00" data-select="sabor-palha" min="0" value="0" onchange="atualizarCarrinho()">
+        <input type="number" class="qtd-item" data-nome="Bolo de Pote" data-preco="14.00" data-select="sabor-palha" min="0" value="0" onchange="atualizarCarrinho()">
       </div>
     </div>
     <!-- Cartão 3: Tortinhas -->
