@@ -20,27 +20,27 @@
   <div class="cardapio-container">
 
     <!-- Cartão 1: Cone Trufado -->
-    <div class="card">
-      <div class="container-imagem">
-        <img src="/static/imagens/cones.jpg" alt="Cone Trufado" class="img-doce">
-      </div>
-      <h3>Cone Trufado</h3>
-      <div class="area-sabor">
-        <label for="sabor-cone">Escolha o Sabor:</label>
-        <select id="sabor-cone" class="select-sabor">
-          <option value="Avelã Crocante">Avelã Crocante</option>
-          <option value="Ovomaltine">Ovomaltine</option>
-          <option value="Maracujá">Maracujá</option>
-          <option value="Prestígio">Prestígio</option>
-          <option value="Cravejado de Morango">Cravejado de Morango</option>
-        </select>
-      </div>
-      <p class="preco">R$ 12,00</p>
-      <div class="area-qtd">
-        <label>Quantidade:</label>
-        <input type="number" class="qtd-item" data-nome="Cone Trufado" data-preco="12.00" data-select="sabor-cone" min="0" value="0" onchange="atualizarCarrinho()">
-      </div>
-    </div>
+<div class="card">
+  <div class="container-imagem">
+    <img src="/static/imagens/cones.jpg" alt="Cone Trufado" class="img-doce">
+  </div>
+  <h3>Cone Trufado <span style="color: red; font-size: 0.8em;">(Esgotado por hoje)</span></h3>
+  <div class="area-sabor">
+    <label for="sabor-cone">Escolha o Sabor:</label>
+    <select id="sabor-cone" class="select-sabor">
+      <option value="Avelã Crocante">Avelã Crocante</option>
+      <option value="Ovomaltine">Ovomaltine</option>
+      <option value="Maracujá">Maracujá</option>
+      <option value="Prestígio">Prestígio</option>
+      <option value="Cravejado de Morango">Cravejado de Morango</option>
+    </select>
+  </div>
+  <p class="preco">R$ 12,00</p>
+  <div class="area-qtd">
+    <label>Quantidade:</label>
+    <input type="number" class="qtd-item" data-nome="Cone Trufado" data-preco="12.00" data-select="sabor-cone" min="0" value="0" disabled>
+  </div>
+</div>
 
     <!-- Cartão 2: Bolo de Pote -->
     <div class="card">
